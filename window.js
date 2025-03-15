@@ -9,6 +9,11 @@ document.getElementById('get-start-btn').addEventListener('click' , (event)=>{
             document.getElementById('main').classList.remove('hidden');
             document.getElementById('banner').classList.add('hidden');
             // sweet alert
+            Swal.fire({
+                title: "অভিনন্দন",
+                text: "চলুন আজ নতুন কিছু শেখা যাক!",
+                icon: "success"
+              });
         }
         else{
             alert('Wrong Password. Contact Admin to get your Login Code');
@@ -46,4 +51,17 @@ learnBtn.addEventListener('click' , ()=>{
   window.scrollTo({ top: position, behavior: "smooth"
   })
 })
+
+// loading 
+function showLoader(){
+    document.getElementById('loader').classList.remove('hidden');
+    document.getElementById('error-container').classList.add('hidden')
+    document.getElementById('cards').classList.add('hidden')
+}
+
+function hideLoader(){
+    document.getElementById('loader').classList.add('hidden');
+    document.getElementById('error-container').classList.remove('hidden')
+    document.getElementById('cards').classList.remove('hidden')
+}
 

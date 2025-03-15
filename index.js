@@ -6,17 +6,12 @@ function removeClass (){
    }
 }
 
-function showLoader(){
-    document.getElementById('loader').classList.remove('hidden');
-    document.getElementById('error-container').classList.add('hidden')
-    document.getElementById('cards').classList.add('hidden')
-}
-
-function hideLoader(){
-    document.getElementById('loader').classList.add('hidden');
-    document.getElementById('error-container').classList.remove('hidden')
-    document.getElementById('cards').classList.remove('hidden')
-}
+// Speak Vocabularies
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-EN'; 
+    window.speechSynthesis.speak(utterance);
+  }
 
 // all levels
 const loadAllLevelsBtn = async() =>{
@@ -173,7 +168,7 @@ const displayCards = (cards) => {
                         <div class="flex justify-between text-gray-700">
                             <button onclick ="detailsBtn('${card.id}')" class= "bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-circle-info"></i>
                             </button>
-                            <button class= " bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-volume-high"></i>
+                            <button onclick ="pronounceWord('${card.word}')" class= " bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-volume-high"></i>
                             </button>
                         </div>
                     </div>        
