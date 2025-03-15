@@ -50,44 +50,43 @@
 <body class="text-[#18181B] poppins">
     <header>
         <!-- navbar -->
-        <div class="navbar shadow-sm bg-base-300 ">
-            <div class="flex justify-between w-11/12 mx-auto  ">
-                <div class="flex items-center ">
-                    <h2 class="text-[#18181B] font-semibold text-xl">English</h2>
-                    <img src="assets/logo.png" alt="">
-                    <h2 class="text-xl tiro-bangla">জানালা</h2>
+        <div id="navbar" class="hidden fixed top-0 z-10 navbar shadow-sm bg-base-200">
+                <div class="flex justify-between w-11/12 mx-auto ">
+                    <div class="flex items-center ">
+                        <h2 class="text-[#18181B] font-semibold text-xl">English</h2>
+                        <img src="assets/logo.png" alt="">
+                        <h2 class="text-xl tiro-bangla">জানালা</h2>
+                    </div>
+                    <div class="flex-none">
+                        <ul class="menu menu-horizontal px-1 gap-3">
+                            <li>
+                                <a
+                                   id="FAQ-btn" class=" btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                                    <img src="assets/fa-circle-question.png" alt=""> FAQ</a>
+                            </li>
+                            <li>
+                                <a
+                                    id="learn-btn" class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                                    <img src="assets/fa-book-open.png" alt=""> Learn</a>
+                            </li>
+                            <li>
+                                <a
+                                    id="logout-btn" class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                                    <img src="assets/fa-arrow-right-from-bracket.png" alt=""> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="flex-none">
-                    <ul class="menu menu-horizontal px-1 gap-3">
-                        <li>
-                            <a
-                                class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
-                                <img src="assets/fa-circle-question.png" alt=""> FAQ</a>
-                        </li>
-                        <li>
-                            <a
-                                class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
-                                <img src="assets/fa-book-open.png" alt=""> Learn</a>
-                        </li>
-                        <li>
-                            <a
-                                class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
-                                <img src="assets/fa-arrow-right-from-bracket.png" alt=""> Logout</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
         </div>
         <!-- banner -->
-        <div class="mt-5 w-11/12 mx-auto flex justify-between items-center">
+        <div id="banner" class="mt-5 w-11/12 mx-auto flex justify-between items-center">
             <div class="space-y-5 max-w-2xl">
                 <h1 class="text-4xl xl:text-5xl font-bold"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
                 <p class="hind-siliguri xl:text-xl">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
                     আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
-                <input type="text" placeholder="Enter your name" class="input block" />
-                <input type="password" placeholder="Enter login code(123456)" class="input block" />
-                <a class=" btn rounded-lg bg-[#422AD5] text-white">
+                <input id="person-name" type="text" placeholder="Enter your name" class="input block" required/>
+                <input id="pin-number" type="password" placeholder="Enter login code(123456)" class="input block" required />
+                <a id="get-start-btn" class=" btn rounded-lg bg-[#422AD5] text-white">
                     Get Started</a>
             </div>
             <div class="">
@@ -95,30 +94,9 @@
             </div>
         </div>
     </header>
-    <main class="w-11/12 mx-auto">
-
-         <!-- modal     -->
-         <section>
-            <!-- Open the modal using ID.showModal() method -->
-            <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-            <dialog id="details-container" class="modal">
-                <div class="modal-box space-y-8 text-[#000000] rounded-3xl">
-                    <div id="details-context" >
-                        <!-- <button class="bg-[#D7E4EF] btn">${details.synonyms[0]}</button>
-                            <button class="bg-[#D7E4EF] btn">${details.synonyms[1]}</button>
-                            <button class="bg-[#D7E4EF] btn">${details.synonyms[2]}</button> -->
-                    </div>
-                
-                    <form method="dialog">
-                        <button class="btn rounded-lg bg-[#412ad5f6] text-white">Complete Learning</button>
-                    </form>
-                    
-                </div>
-            </dialog>
-        </section>
-
+    <main id="main" class="w-11/12 mx-auto hidden">
         <!-- lets learn section  -->
-        <section class="flex flex-col justify-center items-center gap-8 mt-56">
+        <section id="learn-section" class="flex flex-col justify-center items-center gap-8 mt-40">
             <h2 class=" font-bold text-4xl"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h2>
             <!-- all levels btn  -->
             <div id="button-container" class="space-x-4 flex">
@@ -127,8 +105,14 @@
 
             <!-- cards section-->
             <div class="bg-base-200 rounded-lg hind-siliguri text-center  w-full ">
+                <!-- loading -->
+                 <div class=" pt-3 hidden" id="loader">
+                    <span class="loading loading-dots loading-lg "></span>
+                 </div>
+
+                <!-- select lesson section -->
                 <div class="py-16 space-y-2" id="card-container">
-                    <p class="text-gray-500 text-sm">আপনি এখনো কোন Lesson Select করেন ন</p>
+                    <p class="text-gray-500 ">আপনি এখনো কোন Lesson Select করেননি</p>
                     <h2 class="text-[#292524] text-[34px] font-medium">একটি Lesson Select করুন।</h2>
                 </div>
                 <div id="error-container">
@@ -142,7 +126,7 @@
         </section>
 
         <!-- FAQ section -->
-        <section class="mt-56 space-y-16">
+        <section id="FAQ-section" class="mt-56 space-y-16">
             <h2 class=" font-bold text-4xl text-center"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
             </h2>
             <!-- accordion -->
@@ -150,7 +134,7 @@
                 <!-- question : 1 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
-                    <div class="collapse-title font-semibold"> 1. How can I start learning English on this website?
+                    <div class="collapse-title font-semibold"> 1. The difference between var, let, and const
                     </div>
                     <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
                         the registration process.</div>
@@ -158,36 +142,50 @@
                 <!-- question : 2 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
-                    <div class="collapse-title font-semibold">2. Is this website free to use?</div>
+                    <div class="collapse-title font-semibold">2. The difference between map(), forEach(), and filter()</div>
                     <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
                         the registration process.</div>
                 </div>
                 <!-- question : 3 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
-                    <div class="collapse-title font-semibold">3. Do I need to create an account?</div>
+                    <div class="collapse-title font-semibold">3. Explain arrow functions and how they are different from regular functions</div>
                     <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
                         the registration process.</div>
                 </div>
                 <!-- question : 4 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
-                    <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
+                    <div class="collapse-title font-semibold">4. How JavaScript Promises work</div>
                     <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
                         the registration process.</div>
                 </div>
                 <!-- question : 5 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
-                    <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
+                    <div class="collapse-title font-semibold">5. How closures work in JavaScript</div>
                     <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
                         the registration process.</div>
                 </div>
 
             </div>
+        </section>   
+
+         <!-- modal     -->
+         <section>
+            <dialog id="details-container" class="modal">
+                <div class="modal-box space-y-8 text-[#000000] rounded-3xl">
+                    <div id="details-context" >
+                       <!-- details -->
+                    </div>
+                    <form method="dialog">
+                        <button class="btn rounded-lg bg-[#412ad5f6] text-white">Complete Learning</button>
+                    </form>
+                    
+                </div>
+            </dialog>
         </section>
 
-       
     </main>
 
     <footer class=" border-t border-[#FFEBEB]  py-24 mt-24">
@@ -214,6 +212,7 @@
         </div>
     </footer>
 
+    <script src="window.js"></script>
     <script src="index.js"></script>
 </body>
 

@@ -6,6 +6,18 @@ function removeClass (){
    }
 }
 
+function showLoader(){
+    document.getElementById('loader').classList.remove('hidden');
+    document.getElementById('error-container').classList.add('hidden')
+    document.getElementById('cards').classList.add('hidden')
+}
+
+function hideLoader(){
+    document.getElementById('loader').classList.add('hidden');
+    document.getElementById('error-container').classList.remove('hidden')
+    document.getElementById('cards').classList.remove('hidden')
+}
+
 // all levels
 const loadAllLevelsBtn = async() =>{
     const response =await fetch('https://openapi.programming-hero.com/api/levels/all');
@@ -14,6 +26,7 @@ const loadAllLevelsBtn = async() =>{
 }
 // load All Card
 const allCards = async(levelNo) => {
+    showLoader()
     const response = await fetch(`https://openapi.programming-hero.com/api/level/${levelNo}`);
     const data = await response.json();
     removeClass();
@@ -44,8 +57,6 @@ const detailsBtn = async(id) =>{
 //     "id": 5
 // }
 const showDetails = (details) =>{
-    // console.log(details.synonyms.length == 0)
-    console.log(details.synonyms);
      document.getElementById('details-container').showModal();
     const detailsContext = document.getElementById('details-context')
     if(details.meaning == null){
@@ -101,7 +112,6 @@ const showDetails = (details) =>{
 const displayAllLevelsBtn = (buttons) =>{
     const buttonContainer = document.getElementById('button-container');
     buttons.forEach(btn => {
-        // console.log(btn.level_no)
         const div = document.createElement('div');
         div.innerHTML =`
          <button id="btn-${btn.level_no}" onclick = "allCards('${btn.level_no}')" class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
@@ -113,7 +123,6 @@ const displayAllLevelsBtn = (buttons) =>{
 
 // {id: 150, level: 5, word: 'Vindicate', meaning: 'পাল্টানো', pronunciation: 'ভিন্ডিকেট'}
 const displayCards = (cards) => {
-    // console.log(cards)
     const cardContainer = document.getElementById('card-container');
     cardContainer.style.display = 'none';
     const cardsBox = document.getElementById('cards');
@@ -129,16 +138,16 @@ const displayCards = (cards) => {
                         <h2 class="text-gray-700 text-[34px] font-medium">নেক্সট Lesson এ যান</h2>
                     </div>
         `;
+        hideLoader()
         return;
     }
-
 
     cards.forEach(card => {
         // console.log(card)
         const div = document.createElement('div');
         if(card.meaning == null){
             div.innerHTML = `
-                    <div class="p-10 rounded-lg bg-white space-y-10 h-full">
+                    <div class="p-10 rounded-lg bg-white space-y-10 h-full hover:bg-[#1a90ff0a]">
                         <div class="flex flex-col justify-center items-center space-y-5 text-[#000000]">
                             <h3 class=" text-3xl font-bold">${card.word}</h3>
                             <p class="font-medium">Meaning /Pronunciation </p>
@@ -155,8 +164,8 @@ const displayCards = (cards) => {
         }
         else{
             div.innerHTML = `
-                    <div class="p-10 rounded-lg bg-white space-y-10 h-full">
-                        <div class="flex flex-col justify-center items-center space-y-5 text-[#000000]">
+                    <div class="p-10 rounded-lg bg-white space-y-10 h-full hover:bg-[#1a90ff0a]">
+                        <div class="flex flex-col justify-center items-center space-y-5 text-[#000000] ">
                             <h3 class=" text-3xl font-bold">${card.word}</h3>
                             <p class="font-medium">Meaning /Pronunciation </p>
                             <p class="text-gray-700 text-3xl font-semibold hind-siliguri">"${card.meaning} / ${card.pronunciation}"</p>
@@ -172,6 +181,7 @@ const displayCards = (cards) => {
         }
         cardsBox.appendChild(div);
     })
+    hideLoader()
 }
 
 
