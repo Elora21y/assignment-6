@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -31,11 +31,138 @@
         .hind-siliguri {
             font-family: "Hind Siliguri", sans-serif;
         }
+
+        .btn-img:hover img {
+            filter: brightness(0) invert(1);
+        }
     </style>
 </head>
 
-<body>
+<body class="text-[#18181B] poppins">
+    <header>
+        <!-- navbar -->
+        <div class="navbar shadow-sm bg-base-300 ">
+            <div class="flex justify-between w-11/12 mx-auto  ">
+                <div class="flex items-center ">
+                    <h2 class="text-[#18181B] font-semibold text-xl">English</h2>
+                    <img src="assets/logo.png" alt="">
+                    <h2 class="text-xl tiro-bangla">জানালা</h2>
+                </div>
+                <div class="flex-none">
+                    <ul class="menu menu-horizontal px-1 gap-3">
+                        <li>
+                            <a class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                                <img src="assets/fa-circle-question.png" alt=""> FAQ</a>
+                        </li>
+                        <li>
+                            <a class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                                <img src="assets/fa-book-open.png" alt=""> Learn</a>
+                        </li>
+                        <li>
+                            <a class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                                <img src="assets/fa-arrow-right-from-bracket.png" alt=""> Logout</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- banner -->
+         <div class="mt-5 w-11/12 mx-auto flex justify-between items-center">
+            <div class="space-y-5 max-w-2xl">
+                <h1 class="text-4xl xl:text-5xl font-bold"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
+                <p class="hind-siliguri xl:text-xl">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <input type="text" placeholder="Enter your name" class="input block" />
+                <input type="password" placeholder="Enter login code(123456)" class="input block" />
+                <a class=" btn rounded-lg bg-[#422AD5] text-white">
+                 Get Started</a>
+            </div>
+            <div class="">
+                <img class="" src="assets/hero-student.png" alt="">
+            </div>
+         </div>
+    </header>
+    <main class="w-11/12 mx-auto">
+        <!-- lets learn section  -->
+        <section class="flex flex-col justify-center items-center gap-8 mt-56">
+            <h2 class=" font-bold text-4xl"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h2>
+            <!-- all levels btn  -->
+            <div class="space-x-2">
+                <button class="btn-img btn border border-[#422AD5] text-[#422AD5] hover:bg-[#422AD5] hover:text-white">
+                    <img src="assets/fa-book-open.png" alt=""> Parent</button>
+                
+            </div>
+            <div class="bg-base-200 rounded-md hind-siliguri text-center py-16 w-full">
+                <p class="text-gray-500 text-sm">আপনি এখনো কোন Lesson Select করেন ন</p>
+                <h2 class="text-[#292524] text-[34px] font-medium">একটি Lesson Select করুন।</h2>
+            </div>
+        </section>
+
+        <!-- FAQ section -->
+            <section class="mt-56 space-y-16">
+                <h2 class=" font-bold text-4xl text-center"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h2>
+                <!-- accordion -->
+               <div class="space-y-5">
+                <!-- question : 1 -->
+                <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-semibold"> 1. How can I start learning English on this website?</div>
+                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+                  </div>
+                <!-- question : 2 -->
+                <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-semibold">2. Is this website free to use?</div>
+                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+                  </div>
+                <!-- question : 3 -->
+                <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-semibold">3.  Do I need to create an account?</div>
+                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+                  </div>
+                <!-- question : 4 -->
+                <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
+                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+                  </div>
+                <!-- question : 5 -->
+                <div class="collapse collapse-plus bg-base-200 border border-base-300">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
+                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the registration process.</div>
+                  </div>
+                  
+               </div>
+            </section>
+    </main>
+
+    <footer class=" border-t border-[#FFEBEB]  py-24 mt-24">
+        <div class="w-11/12 mx-auto flex justify-between items-center">
+            <div class="grid gap-4">
+                <div class="flex items-center ">
+                    <h2 class="text-[#18181B] font-semibold text-xl">English</h2>
+                    <img src="assets/logo.png" alt="">
+                    <h2 class="text-xl tiro-bangla">জানালা</h2>
+                </div>
+                <h4 class="hind-siliguri text-xl font-medium text-[#000000]">ইংরেজি শিখুন সহজে</h4>
+                <p class="hind-siliguri">Providing ED-Tech Applications since 2025</p>
+            </div>
     
+            <div class="space-y-3">
+                <p class="text-gray-500 font-semibold">Follow us</p>
+                <div class="flex gap-4">
+                    <img src="assets/fb-thumb.png" alt="">
+                    <img src="assets/youtube-thumb.png" alt="">
+                    <img src="assets/instagram-thumb.png" alt="">
+                    <img src="assets/github-thumb.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
