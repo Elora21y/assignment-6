@@ -50,7 +50,7 @@
 <body class="text-[#18181B] poppins">
     <header>
         <!-- navbar -->
-        <div id="navbar" class="hidden fixed top-0 z-10 navbar shadow-sm bg-base-200">
+        <div id="navbar" class="hidden fixed top-0 z-10 navbar shadow-sm bg-base-200 border-b border-gray-200">
                 <div class="flex justify-between w-11/12 mx-auto ">
                     <div class="flex items-center ">
                         <h2 class="text-[#18181B] font-semibold text-xl">English</h2>
@@ -79,7 +79,7 @@
                 </div>
         </div>
         <!-- banner -->
-        <div id="banner" class="mt-5 w-11/12 mx-auto flex justify-between items-center">
+        <div id="banner" class="mt-5 w-11/12 mx-auto flex flex-col-reverse lg:flex-row justify-between items-center">
             <div class="space-y-5 max-w-2xl">
                 <h1 class="text-4xl xl:text-5xl font-bold"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
                 <p class="hind-siliguri xl:text-xl">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
@@ -99,7 +99,7 @@
         <section id="learn-section" class="flex flex-col justify-center items-center gap-8 mt-40">
             <h2 class=" font-bold text-4xl"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h2>
             <!-- all levels btn  -->
-            <div id="button-container" class="space-x-4 flex">
+            <div id="button-container" class="gap-4 flex flex-wrap">
                 <!-- all btn -->
             </div>
 
@@ -119,7 +119,7 @@
                     <!-- error message -->
                 </div>
                 <!-- cards -->
-                <div id="cards" class="grid grid-cols-3 gap-6 2xl:gap-8 p-7 auto-cols-fr">
+                <div id="cards" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 2xl:gap-8 p-7 auto-cols-fr">
                     <!-- card  -->
                 </div>
             </div>
@@ -127,7 +127,7 @@
 
         <!-- FAQ section -->
         <section id="FAQ-section" class="mt-56 space-y-16">
-            <h2 class=" font-bold text-4xl text-center"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
+            <h2 class=" font-bold text-4xl text-center"><span class="text-[#00BCFF]">Frequently</span> Asked Questions
             </h2>
             <!-- accordion -->
             <div class="space-y-5">
@@ -136,36 +136,41 @@
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title font-semibold"> 1. The difference between var, let, and const
                     </div>
-                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
-                        the registration process.</div>
+                    <div class="collapse-content text-sm">
+                        Var is a functional scoped . when we access but not declare a variable before its initialized undefined. Let and Const is a block scoped. They initialized error when we access but not declare before. Var and Let are mutable and their value are reassign. Another side Const value is immutable and its value not changeable. But objects property and array value changeable by const but not reassign all object only object property values .
+                    </div>
                 </div>
                 <!-- question : 2 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title font-semibold">2. The difference between map(), forEach(), and filter()</div>
-                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
-                        the registration process.</div>
+                    <div class="collapse-content text-sm">
+                        Array map() is a one line loop magic. It makes a loop on elements and returns elements in a new array. forEach() is not returns a new array . It throws a loop and if we want output , we need to do callback function inside its. filter() method is based on condition and returns element in a new array. map() and filter() do not modify the original array . But the forEach() method modify the original array .
+                    </div>
                 </div>
                 <!-- question : 3 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title font-semibold">3. Explain arrow functions and how they are different from regular functions</div>
-                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
-                        the registration process.</div>
+                    <div class="collapse-content text-sm">
+                        Arrow function and regular function are dynamically way to write function. When we write a normal /regular function its has a arguments and write multiple line. Another side arrow function has no arguments and its returns output implicitly or explicitly. It has no callback system because it create own this. Arrow function is write short syntax.
+                    </div>
                 </div>
                 <!-- question : 4 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title font-semibold">4. How JavaScript Promises work</div>
-                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
-                        the registration process.</div>
+                    <div class="collapse-content text-sm">
+                        When we fetch a API its go to server and its give us promise. When a promise has created we can handle the result use chain .then() and .catch() method . If promise is resolved , result handle by chain .then() method. If promise is rejected result handle by .catch() method. .then() is showed a successful operation and .catch() function handle a error message.
+                    </div>
                 </div>
                 <!-- question : 5 -->
                 <div class="collapse collapse-plus bg-base-200 border border-base-300">
                     <input type="radio" name="my-accordion-3" checked="checked" />
                     <div class="collapse-title font-semibold">5. How closures work in JavaScript</div>
-                    <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow
-                        the registration process.</div>
+                    <div class="collapse-content text-sm">
+                        When we define a function inside another function, the inner function has access to the outer functions variables. And ther inner function who called a closure. Using closure, we can encapsulate private data that cannot be accessed and reassign directly from outside the closure. When outer function finished execution , the inner function still has access to outer functions variables.
+                    </div>
                 </div>
 
             </div>
@@ -189,7 +194,7 @@
     </main>
 
     <footer class=" border-t border-[#FFEBEB]  py-24 mt-24">
-        <div class="w-11/12 mx-auto flex justify-between items-center">
+        <div class="w-11/12 mx-auto space-y-4 lg:space-y-0 lg:flex  justify-between items-center"> 
             <div class="grid gap-4">
                 <div class="flex items-center ">
                     <h2 class="text-[#18181B] font-semibold text-xl">English</h2>
@@ -202,11 +207,19 @@
 
             <div class="space-y-3">
                 <p class="text-gray-500 font-semibold">Follow us</p>
-                <div class="flex gap-4">
-                    <img src="assets/fb-thumb.png" alt="">
-                    <img src="assets/youtube-thumb.png" alt="">
-                    <img src="assets/instagram-thumb.png" alt="">
-                    <img src="assets/github-thumb.png" alt="">
+                <div class="flex items-center gap-4">
+                    <a href="https://www.facebook.com/elora.yasmin.21" target="_blank">
+                        <img src="assets/fb-thumb.png" alt="facebook">
+                    </a>
+                    <a href="https://www.youtube.com/@elora256" target="_blank">
+                        <img src="assets/youtube-thumb.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com/ajanta__elora/" target="_blank">
+                        <img src="assets/instagram-thumb.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/Elora21y" target="_blank">
+                        <img src="assets/github-thumb.png" alt="Github">
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 // get started with name and password
-document.getElementById('get-start-btn').addEventListener('click' , (event)=>{
+document.getElementById('get-start-btn').addEventListener('click' , (event)=>{ 
     event.preventDefault();
     const name = document.getElementById('person-name').value;
     const pin = parseInt(document.getElementById('pin-number').value);
@@ -34,6 +34,7 @@ document.getElementById('logout-btn').addEventListener('click' , () =>{
     document.getElementById('pin-number').value = '';
 })
 
+// scroll
 const faqBtn = document.getElementById('FAQ-btn');
 faqBtn.addEventListener('click' , ()=>{
   const faqSection = document.getElementById('FAQ-section');

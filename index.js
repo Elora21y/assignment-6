@@ -36,28 +36,13 @@ const detailsBtn = async(id) =>{
     showDetails(data.data);
 }
 // show details 
-// {
-//     "word": "Eager",
-//     "meaning": "আগ্রহী",
-//     "pronunciation": "ইগার",
-//     "level": 1,
-//     "sentence": "The kids were eager to open their gifts.",
-//     "points": 1,
-//     "partsOfSpeech": "adjective",
-//     "synonyms": [
-//         "enthusiastic",
-//         "excited",
-//         "keen"
-//     ],
-//     "id": 5
-// }
 const showDetails = (details) =>{
      document.getElementById('details-container').showModal();
     const detailsContext = document.getElementById('details-context')
     if(details.meaning == null){
         detailsContext.innerHTML =`
         <div class="border border-gray-100 p-4 rounded-2xl space-y-8">
-                        <h3 class="text-3xl font-bold">${details.word} (<i class="fa-solid fa-microphone-lines"></i> : ${details.pronunciation})</h3>
+                        <h3 class="text-xl md:text-3xl font-bold">${details.word} (<i class="fa-solid fa-microphone-lines"></i> : ${details.pronunciation})</h3>
                     <div class="space-y-2">
                         <h4 class=" font-semibold text-xl">Meaning</h4>
                     <p class="font-medium hind-siliguri">"অর্থ পাওয়া যায়নি"</p>
@@ -70,7 +55,7 @@ const showDetails = (details) =>{
 
                     <div class="space-y-2">
                         <h4 class="font-semibold text-xl hind-siliguri">সমার্থক শব্দ গুলো</h4>
-                        <div class="flex gap-3">
+                        <div class="flex flex-wrap gap-3">
                               ${details.synonyms.map(word => `<button class="bg-[#D7E4EF] btn">${word}</button>`).join('')}
                         </div>
                     </div>
@@ -81,7 +66,7 @@ const showDetails = (details) =>{
     else{
         detailsContext.innerHTML =`
         <div class="border border-gray-100 p-4 rounded-2xl space-y-8">
-                        <h3 class="text-3xl font-bold">${details.word} (<i class="fa-solid fa-microphone-lines"></i> : ${details.pronunciation})</h3>
+                        <h3 class="text-xl md:text-3xl font-bold">${details.word} (<i class="fa-solid fa-microphone-lines"></i> : ${details.pronunciation})</h3>
                     <div class="space-y-2">
                         <h4 class=" font-semibold text-xl">Meaning</h4>
                     <p class="font-medium hind-siliguri">${details.meaning}</p>
@@ -94,7 +79,7 @@ const showDetails = (details) =>{
 
                     <div class="space-y-2">
                         <h4 class="font-semibold text-xl hind-siliguri">সমার্থক শব্দ গুলো</h4>
-                        <div class="flex gap-3">
+                        <div class="flex flex-wrap gap-3">
                              ${details.synonyms.map(word => `<button class="bg-[#D7E4EF] btn">${word}</button>`).join('')}
                         </div>
                     </div>
@@ -103,7 +88,6 @@ const showDetails = (details) =>{
     }
 }
 
-// {id: 101, level_no: 1, lessonName: 'Basic Vocabulary'}
 const displayAllLevelsBtn = (buttons) =>{
     const buttonContainer = document.getElementById('button-container');
     buttons.forEach(btn => {
@@ -116,7 +100,6 @@ const displayAllLevelsBtn = (buttons) =>{
     });
 }
 
-// {id: 150, level: 5, word: 'Vindicate', meaning: 'পাল্টানো', pronunciation: 'ভিন্ডিকেট'}
 const displayCards = (cards) => {
     const cardContainer = document.getElementById('card-container');
     cardContainer.style.display = 'none';
@@ -142,28 +125,31 @@ const displayCards = (cards) => {
         const div = document.createElement('div');
         if(card.meaning == null){
             div.innerHTML = `
-                    <div class="p-10 rounded-lg bg-white space-y-10 h-full hover:bg-[#1a90ff0a]">
+                    <div class="p-5 rounded-lg bg-white space-y-10 h-full ">
+                        <div class ="border border-gray-100 p-5 hover:bg-[#1a90ff0a] rounded-lg">
                         <div class="flex flex-col justify-center items-center space-y-5 text-[#000000]">
                             <h3 class=" text-3xl font-bold">${card.word}</h3>
                             <p class="font-medium">Meaning /Pronunciation </p>
-                            <p class="text-gray-700 text-3xl font-semibold hind-siliguri">"অর্থ নেই / ${card.pronunciation}"</p>
+                            <p class="text-gray-700 text-[26px]  font-semibold hind-siliguri">"অর্থ নেই / ${card.pronunciation}"</p>
                         </div>
                         <div class="flex justify-between text-gray-700">
                             <button onclick ="detailsBtn('${card.id}')" class= " bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-circle-info"></i>
                             </button>
-                            <button class= " bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-volume-high"></i>
+                            <button onclick ="pronounceWord('${card.word}')" class= " bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-volume-high"></i>
                             </button>
+                        </div>
                         </div>
                     </div>   
         `;
         }
         else{
             div.innerHTML = `
-                    <div class="p-10 rounded-lg bg-white space-y-10 h-full hover:bg-[#1a90ff0a]">
-                        <div class="flex flex-col justify-center items-center space-y-5 text-[#000000] ">
+                    <div class=" p-5 rounded-lg bg-white space-y-10 h-full ">
+                      <div class =" border border-gray-100 p-5 hover:bg-[#1a90ff0a] rounded-lg">
+                       <div class="flex flex-col justify-center items-center space-y-5 text-[#000000] ">
                             <h3 class=" text-3xl font-bold">${card.word}</h3>
                             <p class="font-medium">Meaning /Pronunciation </p>
-                            <p class="text-gray-700 text-3xl font-semibold hind-siliguri">"${card.meaning} / ${card.pronunciation}"</p>
+                            <p class="text-gray-700 text-[26px] font-semibold hind-siliguri">"${card.meaning} / ${card.pronunciation}"</p>
                         </div>
                         <div class="flex justify-between text-gray-700">
                             <button onclick ="detailsBtn('${card.id}')" class= "bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-circle-info"></i>
@@ -171,6 +157,7 @@ const displayCards = (cards) => {
                             <button onclick ="pronounceWord('${card.word}')" class= " bg-[#1A91FF10] btn rounded-lg"><i class="fa-solid fa-volume-high"></i>
                             </button>
                         </div>
+                      </div>
                     </div>        
         `;
         }
@@ -178,6 +165,5 @@ const displayCards = (cards) => {
     })
     hideLoader()
 }
-
 
 loadAllLevelsBtn();
